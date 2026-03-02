@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Binance Clone Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Frontend -->
+        <mxCell id="frontend" value="Frontend&#10;ReactJS + TypeScript&#10;- Trading UI&#10;- Wallet UI&#10;- Chart&#10;- WebSocket Client"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- API Gateway -->
+        <mxCell id="api" value="API Gateway&#10;FastAPI&#10;- Auth&#10;- Rate Limit&#10;- Routing"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;"
+          vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Auth Service -->
+        <mxCell id="auth" value="Auth Service&#10;- Register / Login&#10;- JWT"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+          vertex="1" parent="1">
+          <mxGeometry x="680" y="40" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- Trading Service -->
+        <mxCell id="trading" value="Trading Service&#10;- Place Order&#10;- Cancel Order"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;"
+          vertex="1" parent="1">
+          <mxGeometry x="680" y="160" width="220" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Matching Engine -->
+        <mxCell id="engine" value="Matching Engine&#10;Python&#10;- Price-Time Priority"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="160" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- PostgreSQL -->
+        <mxCell id="db" value="PostgreSQL&#10;- Users&#10;- Orders&#10;- Trades&#10;- Wallets"
+          style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;"
+          vertex="1" parent="1">
+          <mxGeometry x="680" y="320" width="220" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- Redis -->
+        <mxCell id="redis" value="Redis&#10;- Order Book&#10;- Cache&#10;- Pub/Sub"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;"
+          vertex="1" parent="1">
+          <mxGeometry x="960" y="320" width="240" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- WebSocket -->
+        <mxCell id="ws" value="WebSocket Server&#10;- Realtime OrderBook&#10;- Trades"
+          style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;"
+          vertex="1" parent="1">
+          <mxGeometry x="360" y="260" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="e1" style="endArrow=block;" edge="1" parent="1" source="frontend" target="api">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" style="endArrow=block;" edge="1" parent="1" source="api" target="auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" style="endArrow=block;" edge="1" parent="1" source="api" target="trading">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" style="endArrow=block;" edge="1" parent="1" source="trading" target="engine">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" style="endArrow=block;" edge="1" parent="1" source="engine" target="redis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" style="endArrow=block;" edge="1" parent="1" source="trading" target="db">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" style="endArrow=block;" edge="1" parent="1" source="redis" target="ws">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" style="endArrow=block;" edge="1" parent="1" source="ws" target="frontend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

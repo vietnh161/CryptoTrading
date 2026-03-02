@@ -1,0 +1,32 @@
+<svg
+  width="128"
+  height="128"
+  viewBox="0 0 128 128"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect width="128" height="128" rx="24" fill="#1A1F2E" />
+  
+  <!-- Larger inner symbol -->
+  <g transform="translate(64 64) scale(1.45) translate(-64 -64)">
+    <path
+      d="M64 32L84.5 52.5L64 73L43.5 52.5L64 32Z"
+      fill="#00D4B4"
+      stroke="#00F0D0"
+      stroke-width="3"
+    />
+    <path
+      d="M64 55L84.5 75.5L64 96L43.5 75.5L64 55Z"
+      fill="#FFD700"
+      stroke="#FFEA80"
+      stroke-width="3"
+    />
+    <path
+      d="M38 64H90"
+      stroke="#4A90E2"
+      stroke-width="5"
+      stroke-linecap="round"
+    />
+    <circle cx="64" cy="64" r="6" fill="white" />
+  </g>
+</svg>
